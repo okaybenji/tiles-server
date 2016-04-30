@@ -1,12 +1,14 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var port = 80;
+var http = require("http");
+var sio  = require("socket.io");
 
-io.on('connection', function(socket) {
-    
-    console.log('user connected with IP',socket.handshake.address);
+// create http server
+var server = http.createServer().listen(process.env.PORT, process.env.IP);
+
+// create socket server
+var io = sio.listen(server);
+
+io.sockets.on('connection', function(socket) {
+    console.log('user connected with IP', socket.handshake.address);
     
     socket.on('requestReset', function() {
         console.log(socket.handshake.address,'requested reset');
@@ -21,9 +23,4 @@ io.on('connection', function(socket) {
     socket.on('requestNextColor', function($index) {
         socket.broadcast.emit('nextColor', $index);
     });
-    
-});
-
-http.listen(port, function(){
-    console.log('listening on port',port);
 });

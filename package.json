@@ -1,6 +1,6 @@
 {
   "name": "tiles-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "socket.io server for tiles",
   "dependencies": {
     "express": "^4.10.1",
