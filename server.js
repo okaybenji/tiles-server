@@ -1,11 +1,4 @@
-var http = require("http");
-var sio  = require("socket.io");
-
-// create http server
-var server = http.createServer().listen(process.env.PORT, process.env.IP);
-
-// create socket server
-var io = sio.listen(server);
+var io = require('socket.io').listen(8100);
 
 io.sockets.on('connection', function(socket) {
     console.log('user connected with IP', socket.handshake.address);
