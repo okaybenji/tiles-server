@@ -1,9 +1,8 @@
 {
   "name": "tiles-server",
-  "version": "0.0.2",
-  "description": "socket.io server for tiles",
+  "version": "0.0.3",
+  "description": "websocket server for tiles",
   "dependencies": {
-    "express": "^4.10.1",
-    "socket.io": "^1.2.0"
+    "ws": "^1.1.1"
   }
 }
